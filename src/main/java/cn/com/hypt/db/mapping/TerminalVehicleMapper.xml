@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.com.hypt.db.dao.TerminalVehicleMapper" >
+  <resultMap id="ResultMapTerminalVehicle" type="cn.com.hypt.db.model.TerminalVehicle" >
+    <id column="terminal_vehicles_id" property="terminalVehiclesId" jdbcType="INTEGER" />
+    <result column="terminal_id" property="terminalId" jdbcType="INTEGER" />
+    <result column="vehicle_id" property="vehicleId" jdbcType="INTEGER" />
+    <result column="created" property="created" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    terminal_vehicles_id, terminal_id, vehicle_id, created
+  </sql>
+  <select id="selectByExample" resultMap="ResultMapTerminalVehicle" parameterType="cn.com.hypt.db.model.TerminalVehicleExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from jt_terminal_vehicles
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapTerminalVehicle" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from jt_terminal_vehicles
+    where terminal_vehicles_id = #{terminalVehiclesId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from jt_terminal_vehicles
+    where terminal_vehicles_id = #{terminalVehiclesId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.com.hypt.db.model.TerminalVehicleExample" >
+    delete from jt_terminal_vehicles
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insertSelective" parameterType="cn.com.hypt.db.model.TerminalVehicle" >
+    insert into jt_terminal_vehicles
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="terminalVehiclesId != null" >
+        terminal_vehicles_id,
+      </if>
+      <if test="terminalId != null" >
+        terminal_id,
+      </if>
+      <if test="vehicleId != null" >
+        vehicle_id,
+      </if>
+      <if test="created != null" >
+        created,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="terminalVehiclesId != null" >
+        #{terminalVehiclesId,jdbcType=INTEGER},
+      </if>
+      <if test="terminalId != null" >
+        #{terminalId,jdbcType=INTEGER},
+      </if>
+      <if test="vehicleId != null" >
+        #{vehicleId,jdbcType=INTEGER},
+      </if>
+      <if test="created != null" >
+        #{created,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.com.hypt.db.model.TerminalVehicleExample" resultType="java.lang.Integer" >
+    select count(*) from jt_terminal_vehicles
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update jt_terminal_vehicles
+    <set >
+      <if test="record.terminalVehiclesId != null" >
+        terminal_vehicles_id = #{record.terminalVehiclesId,jdbcType=INTEGER},
+      </if>
+      <if test="record.terminalId != null" >
+        terminal_id = #{record.terminalId,jdbcType=INTEGER},
+      </if>
+      <if test="record.vehicleId != null" >
+        vehicle_id = #{record.vehicleId,jdbcType=INTEGER},
+      </if>
+      <if test="record.created != null" >
+        created = #{record.created,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update jt_terminal_vehicles
+    set terminal_vehicles_id = #{record.terminalVehiclesId,jdbcType=INTEGER},
+      terminal_id = #{record.terminalId,jdbcType=INTEGER},
+      vehicle_id = #{record.vehicleId,jdbcType=INTEGER},
+      created = #{record.created,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.hypt.db.model.TerminalVehicle" >
+    update jt_terminal_vehicles
+    <set >
+      <if test="terminalId != null" >
+        terminal_id = #{terminalId,jdbcType=INTEGER},
+      </if>
+      <if test="vehicleId != null" >
+        vehicle_id = #{vehicleId,jdbcType=INTEGER},
+      </if>
+      <if test="created != null" >
+        created = #{created,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where terminal_vehicles_id = #{terminalVehiclesId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.hypt.db.model.TerminalVehicle" >
+    update jt_terminal_vehicles
+    set terminal_id = #{terminalId,jdbcType=INTEGER},
+      vehicle_id = #{vehicleId,jdbcType=INTEGER},
+      created = #{created,jdbcType=TIMESTAMP}
+    where terminal_vehicles_id = #{terminalVehiclesId,jdbcType=INTEGER}
+  </update>
+</mapper>
