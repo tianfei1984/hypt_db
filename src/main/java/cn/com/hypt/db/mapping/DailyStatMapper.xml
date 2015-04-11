@@ -4,7 +4,7 @@
   <resultMap id="ResultMapDailyStat" type="cn.com.hypt.db.model.DailyStat" >
     <id column="daily_stat_id" property="dailyStatId" jdbcType="INTEGER" />
     <result column="vehicle_id" property="vehicleId" jdbcType="INTEGER" />
-    <result column="occur_date" property="occurDate" jdbcType="TIMESTAMP" />
+    <result column="occur_date" property="occurDate" jdbcType="INTEGER" />
     <result column="fuel_amount" property="fuelAmount" jdbcType="DECIMAL" />
     <result column="mileage" property="mileage" jdbcType="DECIMAL" />
     <result column="refuel" property="refuel" jdbcType="DECIMAL" />
@@ -152,7 +152,7 @@
         #{vehicleId,jdbcType=INTEGER},
       </if>
       <if test="occurDate != null" >
-        #{occurDate,jdbcType=TIMESTAMP},
+        #{occurDate,jdbcType=INTEGER},
       </if>
       <if test="fuelAmount != null" >
         #{fuelAmount,jdbcType=DECIMAL},
@@ -196,7 +196,7 @@
         vehicle_id = #{record.vehicleId,jdbcType=INTEGER},
       </if>
       <if test="record.occurDate != null" >
-        occur_date = #{record.occurDate,jdbcType=TIMESTAMP},
+        occur_date = #{record.occurDate,jdbcType=INTEGER},
       </if>
       <if test="record.fuelAmount != null" >
         fuel_amount = #{record.fuelAmount,jdbcType=DECIMAL},
@@ -231,7 +231,7 @@
     update jt_daily_stat
     set daily_stat_id = #{record.dailyStatId,jdbcType=INTEGER},
       vehicle_id = #{record.vehicleId,jdbcType=INTEGER},
-      occur_date = #{record.occurDate,jdbcType=TIMESTAMP},
+      occur_date = #{record.occurDate,jdbcType=INTEGER},
       fuel_amount = #{record.fuelAmount,jdbcType=DECIMAL},
       mileage = #{record.mileage,jdbcType=DECIMAL},
       refuel = #{record.refuel,jdbcType=DECIMAL},
@@ -251,7 +251,7 @@
         vehicle_id = #{vehicleId,jdbcType=INTEGER},
       </if>
       <if test="occurDate != null" >
-        occur_date = #{occurDate,jdbcType=TIMESTAMP},
+        occur_date = #{occurDate,jdbcType=INTEGER},
       </if>
       <if test="fuelAmount != null" >
         fuel_amount = #{fuelAmount,jdbcType=DECIMAL},
@@ -283,7 +283,7 @@
   <update id="updateByPrimaryKey" parameterType="cn.com.hypt.db.model.DailyStat" >
     update jt_daily_stat
     set vehicle_id = #{vehicleId,jdbcType=INTEGER},
-      occur_date = #{occurDate,jdbcType=TIMESTAMP},
+      occur_date = #{occurDate,jdbcType=INTEGER},
       fuel_amount = #{fuelAmount,jdbcType=DECIMAL},
       mileage = #{mileage,jdbcType=DECIMAL},
       refuel = #{refuel,jdbcType=DECIMAL},

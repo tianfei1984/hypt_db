@@ -4,7 +4,7 @@
   <resultMap id="ResultMapTrip" type="cn.com.hypt.db.model.Trip" >
     <id column="trip_id" property="tripId" jdbcType="INTEGER" />
     <result column="vehicle_id" property="vehicleId" jdbcType="INTEGER" />
-    <result column="recDay" property="recday" jdbcType="TIMESTAMP" />
+    <result column="recDay" property="recday" jdbcType="INTEGER" />
     <result column="created" property="created" jdbcType="TIMESTAMP" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="cn.com.hypt.db.model.Trip" extends="ResultMapTrip" >
@@ -151,7 +151,7 @@
         #{vehicleId,jdbcType=INTEGER},
       </if>
       <if test="recday != null" >
-        #{recday,jdbcType=TIMESTAMP},
+        #{recday,jdbcType=INTEGER},
       </if>
       <if test="created != null" >
         #{created,jdbcType=TIMESTAMP},
@@ -177,7 +177,7 @@
         vehicle_id = #{record.vehicleId,jdbcType=INTEGER},
       </if>
       <if test="record.recday != null" >
-        recDay = #{record.recday,jdbcType=TIMESTAMP},
+        recDay = #{record.recday,jdbcType=INTEGER},
       </if>
       <if test="record.created != null" >
         created = #{record.created,jdbcType=TIMESTAMP},
@@ -194,7 +194,7 @@
     update jt_trip
     set trip_id = #{record.tripId,jdbcType=INTEGER},
       vehicle_id = #{record.vehicleId,jdbcType=INTEGER},
-      recDay = #{record.recday,jdbcType=TIMESTAMP},
+      recDay = #{record.recday,jdbcType=INTEGER},
       created = #{record.created,jdbcType=TIMESTAMP},
       gps = #{record.gps,jdbcType=LONGVARCHAR}
     <if test="_parameter != null" >
@@ -205,7 +205,7 @@
     update jt_trip
     set trip_id = #{record.tripId,jdbcType=INTEGER},
       vehicle_id = #{record.vehicleId,jdbcType=INTEGER},
-      recDay = #{record.recday,jdbcType=TIMESTAMP},
+      recDay = #{record.recday,jdbcType=INTEGER},
       created = #{record.created,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -218,7 +218,7 @@
         vehicle_id = #{vehicleId,jdbcType=INTEGER},
       </if>
       <if test="recday != null" >
-        recDay = #{recday,jdbcType=TIMESTAMP},
+        recDay = #{recday,jdbcType=INTEGER},
       </if>
       <if test="created != null" >
         created = #{created,jdbcType=TIMESTAMP},
@@ -232,7 +232,7 @@
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="cn.com.hypt.db.model.Trip" >
     update jt_trip
     set vehicle_id = #{vehicleId,jdbcType=INTEGER},
-      recDay = #{recday,jdbcType=TIMESTAMP},
+      recDay = #{recday,jdbcType=INTEGER},
       created = #{created,jdbcType=TIMESTAMP},
       gps = #{gps,jdbcType=LONGVARCHAR}
     where trip_id = #{tripId,jdbcType=INTEGER}
@@ -240,7 +240,7 @@
   <update id="updateByPrimaryKey" parameterType="cn.com.hypt.db.model.Trip" >
     update jt_trip
     set vehicle_id = #{vehicleId,jdbcType=INTEGER},
-      recDay = #{recday,jdbcType=TIMESTAMP},
+      recDay = #{recday,jdbcType=INTEGER},
       created = #{created,jdbcType=TIMESTAMP}
     where trip_id = #{tripId,jdbcType=INTEGER}
   </update>
