@@ -7,7 +7,7 @@ public class Trip {
 
     private Integer vehicleId;
 
-    private Date recday;
+    private Integer recday;
 
     private Date created;
 
@@ -29,11 +29,11 @@ public class Trip {
         this.vehicleId = vehicleId;
     }
 
-    public Date getRecday() {
+    public Integer getRecday() {
         return recday;
     }
 
-    public void setRecday(Date recday) {
+    public void setRecday(Integer recday) {
         this.recday = recday;
     }
 

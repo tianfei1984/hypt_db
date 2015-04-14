@@ -235,52 +235,52 @@ public class TripExample {
             return (Criteria) this;
         }
 
-        public Criteria andRecdayEqualTo(Date value) {
+        public Criteria andRecdayEqualTo(Integer value) {
             addCriterion("recDay =", value, "recday");
             return (Criteria) this;
         }
 
-        public Criteria andRecdayNotEqualTo(Date value) {
+        public Criteria andRecdayNotEqualTo(Integer value) {
             addCriterion("recDay <>", value, "recday");
             return (Criteria) this;
         }
 
-        public Criteria andRecdayGreaterThan(Date value) {
+        public Criteria andRecdayGreaterThan(Integer value) {
             addCriterion("recDay >", value, "recday");
             return (Criteria) this;
         }
 
-        public Criteria andRecdayGreaterThanOrEqualTo(Date value) {
+        public Criteria andRecdayGreaterThanOrEqualTo(Integer value) {
             addCriterion("recDay >=", value, "recday");
             return (Criteria) this;
         }
 
-        public Criteria andRecdayLessThan(Date value) {
+        public Criteria andRecdayLessThan(Integer value) {
             addCriterion("recDay <", value, "recday");
             return (Criteria) this;
         }
 
-        public Criteria andRecdayLessThanOrEqualTo(Date value) {
+        public Criteria andRecdayLessThanOrEqualTo(Integer value) {
             addCriterion("recDay <=", value, "recday");
             return (Criteria) this;
         }
 
-        public Criteria andRecdayIn(List<Date> values) {
+        public Criteria andRecdayIn(List<Integer> values) {
             addCriterion("recDay in", values, "recday");
             return (Criteria) this;
         }
 
-        public Criteria andRecdayNotIn(List<Date> values) {
+        public Criteria andRecdayNotIn(List<Integer> values) {
             addCriterion("recDay not in", values, "recday");
             return (Criteria) this;
         }
 
-        public Criteria andRecdayBetween(Date value1, Date value2) {
+        public Criteria andRecdayBetween(Integer value1, Integer value2) {
             addCriterion("recDay between", value1, value2, "recday");
             return (Criteria) this;
         }
 
-        public Criteria andRecdayNotBetween(Date value1, Date value2) {
+        public Criteria andRecdayNotBetween(Integer value1, Integer value2) {
             addCriterion("recDay not between", value1, value2, "recday");
             return (Criteria) this;
         }

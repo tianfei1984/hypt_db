@@ -236,52 +236,52 @@ public class DailyStatExample {
             return (Criteria) this;
         }
 
-        public Criteria andOccurDateEqualTo(Date value) {
+        public Criteria andOccurDateEqualTo(Integer value) {
             addCriterion("occur_date =", value, "occurDate");
             return (Criteria) this;
         }
 
-        public Criteria andOccurDateNotEqualTo(Date value) {
+        public Criteria andOccurDateNotEqualTo(Integer value) {
             addCriterion("occur_date <>", value, "occurDate");
             return (Criteria) this;
         }
 
-        public Criteria andOccurDateGreaterThan(Date value) {
+        public Criteria andOccurDateGreaterThan(Integer value) {
             addCriterion("occur_date >", value, "occurDate");
             return (Criteria) this;
         }
 
-        public Criteria andOccurDateGreaterThanOrEqualTo(Date value) {
+        public Criteria andOccurDateGreaterThanOrEqualTo(Integer value) {
             addCriterion("occur_date >=", value, "occurDate");
             return (Criteria) this;
         }
 
-        public Criteria andOccurDateLessThan(Date value) {
+        public Criteria andOccurDateLessThan(Integer value) {
             addCriterion("occur_date <", value, "occurDate");
             return (Criteria) this;
         }
 
-        public Criteria andOccurDateLessThanOrEqualTo(Date value) {
+        public Criteria andOccurDateLessThanOrEqualTo(Integer value) {
             addCriterion("occur_date <=", value, "occurDate");
             return (Criteria) this;
         }
 
-        public Criteria andOccurDateIn(List<Date> values) {
+        public Criteria andOccurDateIn(List<Integer> values) {
             addCriterion("occur_date in", values, "occurDate");
             return (Criteria) this;
         }
 
-        public Criteria andOccurDateNotIn(List<Date> values) {
+        public Criteria andOccurDateNotIn(List<Integer> values) {
             addCriterion("occur_date not in", values, "occurDate");
             return (Criteria) this;
         }
 
-        public Criteria andOccurDateBetween(Date value1, Date value2) {
+        public Criteria andOccurDateBetween(Integer value1, Integer value2) {
             addCriterion("occur_date between", value1, value2, "occurDate");
             return (Criteria) this;
         }
 
-        public Criteria andOccurDateNotBetween(Date value1, Date value2) {
+        public Criteria andOccurDateNotBetween(Integer value1, Integer value2) {
             addCriterion("occur_date not between", value1, value2, "occurDate");
             return (Criteria) this;
         }

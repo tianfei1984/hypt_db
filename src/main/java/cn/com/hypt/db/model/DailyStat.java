@@ -8,7 +8,7 @@ public class DailyStat {
 
     private Integer vehicleId;
 
-    private Date occurDate;
+    private Integer occurDate;
 
     private BigDecimal fuelAmount;
 
@@ -42,11 +42,11 @@ public class DailyStat {
         this.vehicleId = vehicleId;
     }
 
-    public Date getOccurDate() {
+    public Integer getOccurDate() {
         return occurDate;
     }
 
-    public void setOccurDate(Date occurDate) {
+    public void setOccurDate(Integer occurDate) {
         this.occurDate = occurDate;
     }
 
